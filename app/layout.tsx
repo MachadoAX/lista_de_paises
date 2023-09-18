@@ -18,11 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunitoSans.className}>
-        <main className='bg-slate-800 min-h-screen flex flex-col items-center'>
+        <main className='bg-slate-800 min-h-screen flex flex-col items-center text-center'>
           <nav className="w-full bg-white h-16 flex items-center justify-center"> 
-            <section className="container flex items-center gap-3 ">
-              <Image width={48} height={48} src="/logo_pidai.png" alt='Logo Paidaí' />
-              <h1 className='font-bold text-2xl'>Lista de países</h1>
+            <section className="container flex items-center gap-3  justify-center ">
+              <h1 className='font-bold flex text-2xl text-center'>Lista de países</h1>
             </section>
           </nav>
            {children}

@@ -40,7 +40,7 @@ const CountryPage = async ( {params: { name }} : {params: {name: string}}) => {
     const formatter = Intl.NumberFormat("en", {notation: "compact"})
 
     return (
-    <section className="flex flex-col container ">
+    <section className="flex flex-col container p-4">
         <h1 className='text-5xl my-16 font-bold text-center text-slate-100 '>
             {country.translations.por.common}
         </h1>
@@ -49,7 +49,7 @@ const CountryPage = async ( {params: { name }} : {params: {name: string}}) => {
             Voltar
         </Link>
         
-        <article className='flex md:flex-row flex-col justify-between min-w-full p-10 bg-white rounded-xl'>
+        <article className='flex md:flex-row flex-col justify-between min-w-full p-10 bg-white rounded-xl '>
             <section>
                 { country.capital && (
                     <h2 className='text-xl text-gray-800'>
@@ -85,7 +85,7 @@ const CountryPage = async ( {params: { name }} : {params: {name: string}}) => {
             <h3 className='mt-12 text-2xl font-semibold text-slate-100'>
                 Países que fazem fronteira
             </h3>
-            <div className='container md:grid-cols-3 sm:grid-cols-2  grid grid-cols-1 lg:grid-cols-4 w-full gap-2  p-1'>
+            <div className='container md:grid-cols-5 sm:grid-cols-2  grid grid-cols-2 lg:grid-cols-6 w-full gap-2  p-1'>
                 {borderCountries?.map((border)=> 
                     <CountryCards {...border} key={border.name} /> 
                 )}

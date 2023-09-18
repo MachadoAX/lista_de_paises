@@ -37,7 +37,7 @@ export default async function Home() {
 
 
   return (
-   <section className="container md:grid-cols-3 sm:grid-cols-2  grid grid-cols-1 lg:grid-cols-4 w-full gap-2 mt-16 p-1 ">
+   <section className="container md:grid-cols-5 sm:grid-cols-3 lg:grid-cols-4 grid grid-cols-2  w-full gap-2 mt-16 p-2 ">
       {countries.map((country) => (
      <CountryCards 
         key={country.name.common}
