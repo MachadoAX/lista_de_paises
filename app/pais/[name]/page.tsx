@@ -1,8 +1,7 @@
-import { Country } from '@/app/page'
+import type { Country } from '@/app/page'
 import CountryCards from '@/components/CountryCards'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 /* async function getCountryByName(name: string): Promise<Country> {
     const response = await fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
@@ -10,25 +9,25 @@ import React from 'react'
 } */
 
 async function getCountryByName(name: string): Promise<Country> {
-    const response = await fetch(`https://restcountries.com/v3.1/all`)
+    const response = await fetch("https://restcountries.com/v3.1/all")
     const countries:Country[] = await response.json()
 
     return countries.find((country: Country)=>country.name.common === name)!
 }
 
 async function getCountryBordersByName(name:string) {
-    const response = await fetch(`https://restcountries.com/v3.1/all`)
+    const response = await fetch("https://restcountries.com/v3.1/all")
     const countries:Country[] = await response.json()
 
     const country = countries.find((country: Country)=>country.name.common === name)!
 
     return country.borders?.map((border)=> {
-        const borderCountry = countries.find((country)=> country.cca3 === border)
+        const borderCountry = countries.find((country)=> country.cca3 === border)!
         return {
-            name: borderCountry?.name.common,
-            ptName: borderCountry?.translations.por.common,
-            flag: borderCountry?.flags.svg,
-            flagAlt: borderCountry?.flags.alt
+            name: borderCountry.name.common,
+            ptName: borderCountry.translations.por.common,
+            flag: borderCountry.flags.svg,
+            flagAlt: borderCountry.flags.alt
         }
 })
 }
@@ -88,7 +87,7 @@ const CountryPage = async ( {params: { name }} : {params: {name: string}}) => {
             </h3>
             <div className='container md:grid-cols-3 sm:grid-cols-2  grid grid-cols-1 lg:grid-cols-4 w-full gap-2  p-1'>
                 {borderCountries?.map((border)=> 
-                    <CountryCards {...border} /> 
+                    <CountryCards {...border} key={border.name} /> 
                 )}
             </div>
         </section>
