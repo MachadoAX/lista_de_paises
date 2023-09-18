@@ -45,7 +45,7 @@ const CountryPage = async ( {params: { name }} : {params: {name: string}}) => {
             {country.translations.por.common}
         </h1>
         <Link href="/" className='text-slate-100 flex items-center p-2'>
-            <Image src="/arrow_back.svg" alt='voltar' width={24} height={24} />
+            <Image src="/arrow_back.svg" alt='voltar' width={20} height={24} />
             Voltar
         </Link>
         
@@ -73,7 +73,7 @@ const CountryPage = async ( {params: { name }} : {params: {name: string}}) => {
                 </h2>
                 )}
             </section>
-            <div className='relative h-52 my-2 md:h-auto w-96 shadow-md md:order-last order-first '>
+            <div className='relative h-52 my-2 md:h-auto w-54 md:w-80 shadow-md md:order-last order-first '>
                 <Image 
                     src={country.flags.svg} 
                     alt={country.flags.svg} 
